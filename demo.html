@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>43js</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<style>
+		*{margin:0;padding:0;}
+		ul{	list-style-type: none;}
+		 #wrap{
+			width: 350px;
+			margin: 60px auto;
+		} 
+		ul{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		ul > li{
+			float: left;
+			width: 90px;
+			height: 90px;
+			/*background-color: #0ff;*/
+			border: 10px solid #fff;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul></ul>
+	</div>
+   <script>
+   		(function(){
+   			var oW = document.getElementById("wrap"),
+   				oUl = oW.getElementsByTagName("ul")[0],
+   				num = 9;
+			for(var i=0; i<num; i++){
+				var aLi = document.createElement("li");
+				oUl.appendChild(aLi); 
+				var timer = setInterval(function(){
+					for(var j=0; j<num; j++){
+						var	r = Math.floor(Math.random()*256),
+							g = Math.floor(Math.random()*256),
+							b = Math.floor(Math.random()*256),
+							R = Math.floor(Math.random()*256),
+							G = Math.floor(Math.random()*256),
+							B = Math.floor(Math.random()*256),
+							r1 = Math.floor(Math.random()*256),
+							g1 = Math.floor(Math.random()*256),
+							b1 = Math.floor(Math.random()*256);
+						oUl.children[j].style.backgroundImage ="radial-gradient(rgb("+r+","+g+","+b+"),rgb("+R+","+G+","+B+"),rgb("+r1+","+g1+","+b1+"))";	
+					}	
+				},1000/60)			
+			}
+   			/*	菜鸡版
+   			for(var i=0; i<9; i++){
+			var r = Math.floor(Math.random()*256),
+				g = Math.floor(Math.random()*256),
+				b = Math.floor(Math.random()*256);
+			str += "<li style='background-color:rgb("+r+","+g+","+b+")'></li>"	;
+			}
+   			oUl.innerHTML = str;*/
+   		})();
+   </script>
+</body>
+</html>
